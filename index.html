@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <div id="matrix">
+        <canvas id="canvas"></canvas>
+    </div>
+    <div id="main">
+
+        <div class="conteudo">
+
+            <div class="top">
+
+                <h1>&lt;&nbsp;Israel Alves&nbsp;/&gt;</h1>
+                <h2>&lt;&nbsp;Systems Analyst and Developer&nbsp;/&gt;</h2>
+                <h2>&lt;&nbsp;Fullstack JR Developer&nbsp;/&gt;</h2>
+                <p class="teste"><img src="./img/israel.png" alt=""></p>
+            </div>
+            <div class="navegation">
+                <a href="./curriculo2.html">Currículo</a>
+                <a href="./certificados.html">Certificados</a>
+                <a href="./projetos.html">Projetos</a>
+            </div>
+
+        </div>
+
+
+        <div class="redes">
+            <a href="https://github.com/Khaldewey?tab=repositories" target="_blank"><img src="./img/github.png"
+                    alt=""></a>
+            <a href="https://www.linkedin.com/in/israel-alves-30413a17a/" target="_blank"><img
+                    src="./img/Sem título.png" alt="" id="linkedin"></a>
+        </div><br><br>
+        <div class="rodape">
+            <h4>&copy;&nbsp;Todos os direitos reservados | 2022</h4>
+        </div>
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        var texts = '0123456789'.split('');
+        var fontSize = 16;
+        var columns = canvas.width / fontSize;
+        var drops = [];
+        for (var x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0,0,0,0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px arial';
+            for (var i = 0; i < drops.length; i++) {
+                var text = texts[Math.floor(Math.random() * texts.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height || Math.random() > 0.95) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+    </script>
+</body>
+
+</html>
