@@ -152,6 +152,10 @@ li .dropdown {
 	.aviso {
 		display: block;
 	}
+
+	.suba {
+		display: none;
+	}
 }
 
 /* Dispositivos um pouco maiores, mas ainda pequenos (Pequenos Tablets e Smartphones + largos, 600px para cima) */
